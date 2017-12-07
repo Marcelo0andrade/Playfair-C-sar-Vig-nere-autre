@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,8 +29,8 @@ namespace Playfair_chiffreur_déchiffreur
                         break;
                 }
                 Console.WriteLine("\n Voulez vous quitter l'application ? ( o / n )");
-                char cpartir = Console.ReadKey().KeyChar;
-                if (cpartir == 'o')
+                char cPartir = Console.ReadKey().KeyChar;
+                if (cPartir == 'o')
                 {
                     Console.WriteLine("\nMerci de la visite");
                     Thread.Sleep(1000);
@@ -42,11 +43,20 @@ namespace Playfair_chiffreur_déchiffreur
         static void chiffrer()
         {
             Console.WriteLine("\n Chiffrer");
-            Console.WriteLine("Veuillez me donner votre mot clef");
+            Console.WriteLine("Veuillez me donner votre mot clef (en majuscule)");
             string strMotClef = Console.ReadLine();
-            Console.WriteLine("Veuillez me donner une lettre non utilisé");
+            Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");
             char cLettre = Console.ReadKey().KeyChar;
-
+            string strfinal = "";
+            for (int i = 0; i <= strMotClef.Length;)
+            {
+                if (!(strMotClef.Contains(cLettre)))
+                {
+                    strfinal += cLettre + strMotClef;
+                }
+            }
+            Console.WriteLine("\n {0}",strfinal);
+            
         }
         static void déchiffrer()
         {

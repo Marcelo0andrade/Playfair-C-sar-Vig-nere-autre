@@ -12,13 +12,13 @@ namespace Playfair_chiffreur_déchiffreur
         string strMotclef;
         string strfinal;
         char clettre;
-        int istart = 0;
+        const int istart = 0;
 
         static void Main(string[] args)
         {
             do
             {
-                Console.WriteLine("Saisissez: \n ( 1 ) pour chiffrer \n ( 2 ) pour déchiffrer");
+                Console.WriteLine("\nSaisissez: \n ( 1 ) pour chiffrer \n ( 2 ) pour déchiffrer");
                 string strsaisie = Console.ReadLine();
                 int ichiffreroupas = Convert.ToInt32(strsaisie);
                 switch (ichiffreroupas)
@@ -30,12 +30,15 @@ namespace Playfair_chiffreur_déchiffreur
                         déchiffrer();
                         break;
                 }
-                Console.WriteLine("Voulez vous quitter l'application ? (o/n)");
+                Console.WriteLine("\nVoulez vous quitter l'application ? (o/n)");
                 char cpartir = Console.ReadKey().KeyChar;
-                if (cpartir == 'o'){
-                    Console.WriteLine("Merci de la visite");
+                if (cpartir == 'o')
+                {
+                    Console.WriteLine("\nMerci de la visite");
+                    Environment.Exit(0);
                 }
-            } while (true);
+
+            } while (istart == 0);
         }
 
         static void chiffrer()

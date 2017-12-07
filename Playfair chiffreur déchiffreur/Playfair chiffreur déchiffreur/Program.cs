@@ -9,10 +9,7 @@ namespace Playfair_chiffreur_déchiffreur
 {
     class Program
     {
-        string stralpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        string strMotclef;
-        string strfinal;
-        char clettre;
+        static string strAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const int istart = 0;
 
         static void Main(string[] args)
@@ -45,11 +42,20 @@ namespace Playfair_chiffreur_déchiffreur
         static void chiffrer()
         {
             Console.WriteLine("\n Chiffrer");
+            Console.WriteLine("Veuillez me donner votre mot clef");
+            string strMotClef = Console.ReadLine();
+            Console.WriteLine("Veuillez me donner une lettre non utilisé");
+            char cLettre = Console.ReadKey().KeyChar;
 
         }
         static void déchiffrer()
         {
             Console.WriteLine("\n Déchiffrer");
+            Console.WriteLine("Veuillez me donner votre mot clef");
+            string strMotClef = Console.ReadLine();
+            Console.WriteLine("Veuillez me donner une lettre non utilisé");
+            char cLettre = Console.ReadKey().KeyChar;
+
         }
     }
 }

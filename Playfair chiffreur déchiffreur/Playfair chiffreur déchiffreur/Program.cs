@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Playfair_chiffreur_déchiffreur
@@ -18,23 +19,23 @@ namespace Playfair_chiffreur_déchiffreur
         {
             do
             {
-                Console.WriteLine("\nSaisissez: \n ( 1 ) pour chiffrer \n ( 2 ) pour déchiffrer");
-                string strsaisie = Console.ReadLine();
-                int ichiffreroupas = Convert.ToInt32(strsaisie);
-                switch (ichiffreroupas)
+                Console.WriteLine("\n Saisissez: \n ( c ) pour chiffrer \n ( d ) pour déchiffrer");
+                char csaisie = Console.ReadKey().KeyChar;
+                switch (csaisie)
                 {
-                    case 1:
+                    case 'c':
                         chiffrer();
                         break;
-                    case 2:
+                    case 'd':
                         déchiffrer();
                         break;
                 }
-                Console.WriteLine("\nVoulez vous quitter l'application ? (o/n)");
+                Console.WriteLine("\n Voulez vous quitter l'application ? ( o / n )");
                 char cpartir = Console.ReadKey().KeyChar;
                 if (cpartir == 'o')
                 {
                     Console.WriteLine("\nMerci de la visite");
+                    Thread.Sleep(1000);
                     Environment.Exit(0);
                 }
 
@@ -43,12 +44,12 @@ namespace Playfair_chiffreur_déchiffreur
 
         static void chiffrer()
         {
-            Console.WriteLine("Chiffrer");
+            Console.WriteLine("\n Chiffrer");
 
         }
         static void déchiffrer()
         {
-            Console.WriteLine("Déchiffrer");
+            Console.WriteLine("\n Déchiffrer");
         }
     }
 }

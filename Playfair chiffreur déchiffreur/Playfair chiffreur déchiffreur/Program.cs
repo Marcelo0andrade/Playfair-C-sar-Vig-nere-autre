@@ -17,6 +17,7 @@ namespace Playfair_chiffreur_déchiffreur
         {
             do
             {
+                Console.Clear();
                 Console.WriteLine("\n Saisissez: \n ( c ) pour chiffrer \n ( d ) pour déchiffrer");
                 char csaisie = Console.ReadKey().KeyChar;
                 switch (csaisie)

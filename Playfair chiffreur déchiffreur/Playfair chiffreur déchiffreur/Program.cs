@@ -42,17 +42,38 @@ namespace Playfair_chiffreur_déchiffreur
 
         static void chiffrer()
         {
-            Console.WriteLine("\n Chiffrer");
-            Console.WriteLine("Veuillez me donner votre mot clef (en majuscule)");
-            string strMotClef = Console.ReadLine();
-            Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");
-            char cLettre = Console.ReadKey().KeyChar;
+            Console.WriteLine("\n Chiffrer");                                                   //Demande utilisateur des choses 
+            Console.WriteLine("Veuillez me donner votre mot clef (en majuscule)");             //Demande utilisateur des choses 
+            string strMotClef = Console.ReadLine();                                           //Demande utilisateur des choses 
+            Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");   //Demande utilisateur des choses 
+            char cLettre = Console.ReadKey().KeyChar;                                       //Demande utilisateur des choses 
             string strfinal = "";
-            for (int i = 0; i <= strMotClef.Length;)
+            if (!(strMotClef.Contains(cLettre)))                                            //si le mot clef ne contient pas clettre il l'ajoute
             {
-                if (!(strMotClef.Contains(cLettre)))
+                strfinal += cLettre + strMotClef;                                           //si le mot clef ne contient pas clettre il l'ajoute
+            }
+            else
+            {
+                for (int i = 0; i <= strMotClef.Length;)                                   //pour i à longueur strmotclef faire:              
                 {
-                    strfinal += cLettre + strMotClef;
+                    if (!(strfinal.Contains(strMotClef[i])))                              //si strfianl est ne contient pas strmotclef longueur 
+                    {
+                        strfinal += strfinal + strMotClef[i];                               // ajouter à strFinal strFinal et strMotClef jusqu'à longeueur de i 
+                        for (i = 0; i <= strfinal.Length;)
+                        {
+                            if (!(strfinal.Contains(strAlphabet[i])))
+                            {
+                                strfinal += strAlphabet[i];
+                                Console.WriteLine("\n {0}", strfinal);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Erreur");
+                        Thread.Sleep(1000);
+                        Environment.Exit(0);
+                    }
                 }
             }
             Console.WriteLine("\n {0}",strfinal);

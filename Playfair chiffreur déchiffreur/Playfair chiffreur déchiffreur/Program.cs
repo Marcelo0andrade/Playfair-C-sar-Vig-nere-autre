@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ Projet: Playfair_chiffreur_déchiffreur
+ Auteur: Marcelo Andrade
+ Date: 08.12.17
+ Classe: 1M4I1C
+ Version: Microsoft Visual studio pro 2017
+ OS: Win 10 Pro
+ But: Afficher un texte dans la console
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,36 +58,36 @@ namespace Playfair_chiffreur_déchiffreur
             Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");   //Demande utilisateur des choses 
             char cLettre = Console.ReadKey().KeyChar;                                       //Demande utilisateur des choses 
             string strfinal = "";
-            if (!(strMotClef.Contains(cLettre)))                                            //si le mot clef ne contient pas clettre il l'ajoute
+            if (strMotClef.Contains(cLettre))                                            //si le mot clef ne contient pas clettre il l'ajoute
             {
-                strfinal += cLettre + strMotClef;                                           //si le mot clef ne contient pas clettre il l'ajoute
+                Console.WriteLine("Erreur désolé Votre mot clef contient la lettre non utilisé");                          //Verfifie si la lettre non utilisé est dans le mot
             }
             else
             {
-                for (int i = 0; i <= strMotClef.Length;)                                   //pour i à longueur strmotclef faire:              
+                for (int i = 0; i < strMotClef.Length; i++)                                   //pour i à longueur strmotclef faire:              
                 {
+                    if (!(strfinal.Contains(cLettre)))
+                    {
+                        strfinal += cLettre;
+                    }
                     if (!(strfinal.Contains(strMotClef[i])))                              //si strfianl est ne contient pas strmotclef longueur 
                     {
-                        strfinal += strfinal + strMotClef[i];                               // ajouter à strFinal strFinal et strMotClef jusqu'à longeueur de i 
-                        for (i = 0; i <= strfinal.Length;)
-                        {
-                            if (!(strfinal.Contains(strAlphabet[i])))
-                            {
-                                strfinal += strAlphabet[i];
-                                Console.WriteLine("\n {0}", strfinal);
-                            }
-                        }
+                        
+                        strfinal += strMotClef[i];                               // ajouter à strFinal strFinal et strMotClef jusqu'à longeueur de i 
                     }
-                    else
+                    
+                }
+                for (int i = 0; i <= strfinal.Length; i++)
+                {
+                    while (!(strfinal.Contains(strAlphabet[i])))
                     {
-                        Console.WriteLine("Erreur");
-                        Thread.Sleep(1000);
-                        Environment.Exit(0);
+                        strfinal += strAlphabet[i];
+                        Console.WriteLine("\n {0}", strfinal);
                     }
                 }
             }
-            Console.WriteLine("\n {0}",strfinal);
-            
+            Console.WriteLine("\n {0}", strfinal);
+
         }
         static void déchiffrer()
         {

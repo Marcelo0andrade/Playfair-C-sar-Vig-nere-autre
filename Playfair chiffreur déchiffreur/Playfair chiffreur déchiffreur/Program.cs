@@ -99,15 +99,13 @@ namespace Playfair_chiffreur_déchiffreur
                     while (!(strfinal.Contains(strAlphabet[i])))
                     {
                         strfinal = strfinal+ strAlphabet[i];
-                        Console.WriteLine("\n {0}", strfinal);
                     }
                 }
             }
-            strfinal.Insert(4, "\n");
-            strfinal.Insert(8, "\n");
-            strfinal.Insert(12, "\n");
-            Console.WriteLine(strfinal);
-            Console.WriteLine(strMotChiffrer);
+            Console.Clear();
+
+            Console.WriteLine("l'alphabet est le suivant : {0}",strfinal);
+            Console.WriteLine("le mot à chiffrer est le suivant : {0}", strMotChiffrer);
             Console.ReadKey();
 
 

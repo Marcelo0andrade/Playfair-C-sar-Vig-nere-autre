@@ -55,18 +55,21 @@ namespace Playfair_chiffreur_déchiffreur
             Console.WriteLine("\n Chiffrer");                                                   //Demande utilisateur des choses 
             Console.WriteLine("Inserez ce que vous voulez chiffrer svp !");
             string strMotChiffrer = Console.ReadLine();
-            //char[] test = strMotChiffrer.ToCharArray();
            
             for (int i = 0; i < strMotChiffrer.Length - 1; i++)
             {
                 Char cDivise = strMotChiffrer[i];
-                Console.WriteLine(cDivise);
-                if (strMotChiffrer[i] == strMotChiffrer[i+1])
+                if (strMotChiffrer[i] == strMotChiffrer[i + 1])
                 {
-                    strMotChiffrer = strMotChiffrer.Insert(i+1, "X");
+                    strMotChiffrer = strMotChiffrer.Insert(i + 1, "X");
                 }
             }
+            if(strMotChiffrer.Length % 2 == 1)
+            {
+                strMotChiffrer += "X";
+            }
             Console.WriteLine(strMotChiffrer);
+
             Console.WriteLine("Veuillez me donner votre mot clef (en majuscule)");             //Demande utilisateur des choses 
             string strMotClef = Console.ReadLine();                                           //Demande utilisateur des choses 
             Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");   //Demande utilisateur des choses 

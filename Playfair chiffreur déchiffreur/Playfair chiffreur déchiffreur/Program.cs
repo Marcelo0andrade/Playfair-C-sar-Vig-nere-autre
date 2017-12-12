@@ -53,7 +53,7 @@ namespace Playfair_chiffreur_déchiffreur
         static void chiffrer()
         {
             Console.WriteLine("\n Chiffrer");                                                   //Demande utilisateur des choses 
-            Console.WriteLine("Inserez ce que vous voulez chiffrer svp !");
+            Console.WriteLine("Inserez ce que vous voulez chiffrer svp !(en majuscule)");
             string strMotChiffrer = Console.ReadLine();
            
             for (int i = 0; i < strMotChiffrer.Length - 1; i++)
@@ -111,15 +111,16 @@ namespace Playfair_chiffreur_déchiffreur
             int istartIndex;
             for (int i = 0; i < strMotChiffrer.Length; i++)
             {
-                if (i % 2 == 1)
+                if (!(i % 2 == 0))
                 {
-                    istartIndex = i;
+                    istartIndex = i -1;
                     ilength = 2;
                     String substring = strMotChiffrer.Substring(istartIndex, ilength);
                     Console.WriteLine(substring);
+                   
                 }
             }
-
+            Console.ReadKey();
 
 
     }

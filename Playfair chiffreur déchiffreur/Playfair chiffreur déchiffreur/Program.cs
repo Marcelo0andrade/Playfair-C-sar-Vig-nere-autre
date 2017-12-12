@@ -5,7 +5,7 @@
  Classe: 1M4I1C
  Version: Microsoft Visual studio pro 2017
  OS: Win 10 Pro
- But: Afficher un texte dans la console
+ But: Chiffrer Déchiffrer
 */
 using System;
 using System.Collections.Generic;
@@ -107,12 +107,31 @@ namespace Playfair_chiffreur_déchiffreur
             Console.WriteLine("l'alphabet est le suivant : {0}",strfinal);
             Console.WriteLine("le mot à chiffrer est le suivant : {0}", strMotChiffrer);
             Console.ReadKey();
+            int ilength;
+            int istartIndex;
+            for (int i = 0; i < strMotChiffrer.Length; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    istartIndex = i;
+                    ilength = 2;
+                    String substring = strMotChiffrer.Substring(istartIndex, ilength);
+                    Console.WriteLine(substring);
+                }
+            }
 
 
 
-        }
+    }
         static void déchiffrer()
         {
+            Console.Clear();
+            String value = "This is a string.";
+            int startIndex = 0;
+            int length = 2;
+            String substring = value.Substring(startIndex, length);
+            Console.WriteLine(substring);
+
             Console.WriteLine("\n Déchiffrer");
             Console.WriteLine("Veuillez me donner votre mot clef");
             string strMotClef = Console.ReadLine();

@@ -81,12 +81,12 @@ namespace Playfair_chiffreur_déchiffreur
             }
             else
             {
-                for (int i = 0; i < strMotClef.Length; i++)                                   //pour i à longueur strmotclef faire:              
-                {
                     if (!(strfinal.Contains(cLettre)))
                     {
                         strfinal += cLettre;
                     }
+                for (int i = 0; i < strMotClef.Length; i++)                                   //pour i à longueur strmotclef faire:              
+                {
                     if (!(strfinal.Contains(strMotClef[i])))                              //si strfianl est ne contient pas strmotclef longueur 
                     {
                         
@@ -94,11 +94,11 @@ namespace Playfair_chiffreur_déchiffreur
                     }
                     
                 }
-                for (int i = 0; i < strfinal.Length; i++)
+                for (int i = 0; i < strAlphabet.Length; i++)
                 {
-                    while (!(strfinal.Contains(strAlphabet[i])))
+                    if (!(strfinal.Contains(strAlphabet[i])))
                     {
-                        strfinal = strfinal+ strAlphabet[i];
+                        strfinal += strAlphabet[i];
                     }
                 }
             }

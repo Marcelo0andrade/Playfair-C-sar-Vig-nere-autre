@@ -122,35 +122,11 @@ namespace Playfair_chiffreur_déchiffreur
                 }
             }
             strfinal = new string(cfinal);
-            void trouverX()
-            {
-                for (int i = 0; i < cfinal.Length; i++)
-                {
-                    int ix = i % 5;
-                    char[] ccase = strfinal.ToCharArray(i, 1);
-                }
-            }
-            void trouverY()
-            {
-                for (int i = 0; i < cfinal.Length; i++)
-                {
-                    int iy = i / 5;
-                    char[] ccase = strfinal.ToCharArray(i, 1);
-                }
-            }
-            void trouverNumeroCase()
-            {
-                for (int i = 0; i < cfinal.Length; i++)
-                {
-                    int ix = i % 5;
-                    int iy = i / 5;
-                    char[] ccase = strfinal.ToCharArray(i, 1);
-                    int iNumecase = ix + 5 * iy;
-                }
-            }
-            int x = trouverX(iNumcase);
+            int iNumcase = 0;
+            
+            int x = trouverX(7);
             int y = trouverY(iNumcase);
-            int iNumcase = trouverNumeroCase(x,y);
+            iNumcase = trouverNumeroCase(x,y);
         Console.ReadKey();
     }
         static void déchiffrer()
@@ -168,6 +144,24 @@ namespace Playfair_chiffreur_déchiffreur
             Console.WriteLine("Veuillez me donner une lettre non utilisé");
             char cLettre = Console.ReadKey().KeyChar;
 
+        }
+
+        static int trouverX(int numCase)
+        {
+                return numCase % 5;
+        }
+        static int trouverY(int numCase)
+        {
+               return numCase / 5;
+        }
+        static int trouverNumeroCase(int x,int y)
+        {
+            for (int i = 0; i < cfinal.Length; i++)
+            {
+                int ix = i % 5;
+                int iy = i / 5;
+                iNumcase = ix + 5 * iy;
+            }
         }
     }
 }

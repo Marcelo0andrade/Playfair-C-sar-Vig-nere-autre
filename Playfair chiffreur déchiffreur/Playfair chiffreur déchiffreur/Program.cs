@@ -106,23 +106,29 @@ namespace Playfair_chiffreur_déchiffreur
 
             Console.WriteLine("l'alphabet est le suivant : {0}",strfinal);
             Console.WriteLine("le mot à chiffrer est le suivant : {0}", strMotChiffrer);
-            Console.ReadKey();
             int ilength;
             int istartIndex;
+            char[] cfinal = strfinal.ToCharArray(1,25);
+            string strsubstring;
+            Console.WriteLine(cfinal);
             for (int i = 0; i < strMotChiffrer.Length; i++)
             {
                 if (!(i % 2 == 0))
                 {
                     istartIndex = i -1;
                     ilength = 2;
-                    String substring = strMotChiffrer.Substring(istartIndex, ilength);
-                    Console.WriteLine(substring);
-                   
+                    strsubstring = strMotChiffrer.Substring(istartIndex, ilength);
+                    Console.WriteLine(strsubstring);
                 }
             }
-            Console.ReadKey();
-
-
+            strfinal = new string(cfinal);
+                for (int i = 0; i < cfinal.Length; i++)
+                {
+                    int x = i % 5;
+                    int y = i / 5;
+                    char[] cnumcase = strfinal.ToCharArray(i, 1);
+                }
+                Console.ReadKey();
     }
         static void déchiffrer()
         {

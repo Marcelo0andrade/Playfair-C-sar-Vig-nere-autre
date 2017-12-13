@@ -156,12 +156,7 @@ namespace Playfair_chiffreur_déchiffreur
         }
         static int trouverNumeroCase(int x,int y)
         {
-            for (int i = 0; i < cfinal.Length; i++)
-            {
-                int ix = i % 5;
-                int iy = i / 5;
-                iNumcase = ix + 5 * iy;
-            }
+            return x % 5 & y / 5;
         }
     }
 }

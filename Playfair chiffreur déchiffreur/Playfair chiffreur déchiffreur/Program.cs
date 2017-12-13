@@ -216,6 +216,9 @@ namespace Playfair_chiffreur_déchiffreur
 }
 
 /*TESTS
+ * 
+ * 
+ * A DEMANDER AU PROF: LE PROGRAMME PASSE PARTOUT (SI)
 A b c d e
 f g h i j
 k l M n o

@@ -115,18 +115,23 @@ namespace Playfair_chiffreur_déchiffreur
             {
                 if (!(i % 2 == 0))
                 {
-                    istartIndex = i -1;
+                    istartIndex = i - 1;
                     ilength = 2;
                     strsubstring = strMotChiffrer.Substring(istartIndex, ilength);
                     Console.WriteLine(strsubstring);
                 }
             }
             strfinal = new string(cfinal);
-            int iNumcase = 0;
-            
-            int x = trouverX(7);
-            int y = trouverY(iNumcase);
-            iNumcase = trouverNumeroCase(x,y);
+            int a = 0;
+            for (int i = 0; i < strfinal.Length; i++)
+            {
+                int iNumcase = a++;
+               // strfinal.ToCharArray(0, 1);
+                int ix = trouverX(iNumcase);
+                int iy = trouverY(iNumcase);
+                iNumcase = trouverNumeroCase(ix, iy);
+            }
+
         Console.ReadKey();
     }
         static void déchiffrer()

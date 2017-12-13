@@ -122,18 +122,35 @@ namespace Playfair_chiffreur_déchiffreur
                 }
             }
             strfinal = new string(cfinal);
-                        itrouverX();
-                     int itrouverX(iNumecase)
-                     {
-                          for (int i = 0; i < cfinal.Length; i++)
-                         {
-                        int x = i % 5;
-                        int y = i / 5;
-                        char[] ccase = strfinal.ToCharArray(i, 1);
-                        int iNumecase = x + 5 * y;
-                    }
-            
-        }
+            void trouverX()
+            {
+                for (int i = 0; i < cfinal.Length; i++)
+                {
+                    int ix = i % 5;
+                    char[] ccase = strfinal.ToCharArray(i, 1);
+                }
+            }
+            void trouverY()
+            {
+                for (int i = 0; i < cfinal.Length; i++)
+                {
+                    int iy = i / 5;
+                    char[] ccase = strfinal.ToCharArray(i, 1);
+                }
+            }
+            void trouverNumeroCase()
+            {
+                for (int i = 0; i < cfinal.Length; i++)
+                {
+                    int ix = i % 5;
+                    int iy = i / 5;
+                    char[] ccase = strfinal.ToCharArray(i, 1);
+                    int iNumecase = ix + 5 * iy;
+                }
+            }
+            int x = trouverX(iNumcase);
+            int y = trouverY(iNumcase);
+            int iNumcase = trouverNumeroCase(x,y);
         Console.ReadKey();
     }
         static void déchiffrer()

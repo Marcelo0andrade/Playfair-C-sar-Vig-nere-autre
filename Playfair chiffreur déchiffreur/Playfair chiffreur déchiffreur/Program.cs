@@ -126,13 +126,62 @@ namespace Playfair_chiffreur_déchiffreur
             {
                 if (!(i % 2 == 0))
                 {
-                    istartIndex = i - 1;
+                    istartIndex = i - 1;                                        //Diviser mes lettres en 2
                     ilength = 2;
                     strsubstring = strMotChiffrer.Substring(istartIndex, ilength);
-                    Console.WriteLine(strsubstring);
                 }
             }
+            int numCase = 0;
+            int iX = TrouverX(numCase);
+            int iY = TrouverY(numCase);
+            numCase = TrouverNumeroCase(iX,iY);
             strfinal = new string(cfinal);
+            int iPositonXDeLaCase1 = iX; // de la lettre numéro 1
+            int iPositonYDeLaCase1 = iY; // de la lettre numéro 1
+            int iPositonXDeLaCase2 = iX;// de la lettre numéro 2
+            int iPositonYDeLaCase2 = iY; // de la lettre numéro 2
+
+
+            if(iPositonYDeLaCase1 / 5 == iPositonYDeLaCase2 / 5) {
+                if(iPositonXDeLaCase1 == 4){
+                    int iXPosition1 = iPositonXDeLaCase1 - 4;
+                    int iYPosition1 = iPositonYDeLaCase1;
+               }
+                if(iPositonXDeLaCase2 == 4){
+                    int iXPosition2 = iPositonXDeLaCase2 - 4;
+                    int iYPosition2 = iPositonYDeLaCase2;
+               }
+            else{
+                    int iXPosition1 = iPositonXDeLaCase1 + 1;
+                    int iXPosition2 = iPositonXDeLaCase2 + 1;
+                    int iYPosition1 = iPositonYDeLaCase2;
+                    int iYPosition2 = iPositonYDeLaCase2;
+    }
+            }
+
+                if(iPositonXDeLaCase1 % 5 == iPositonXDeLaCase2 % 5) {
+                if(iPositonYDeLaCase1 == 4){
+                    int iYPosition1 = iPositonYDeLaCase1 - 4;
+                    int iXPosition1 = iPositonXDeLaCase1;
+               }
+                if(iPositonYDeLaCase2 == 4){
+                    int iYPosition2 = iPositonYDeLaCase2 - 4;
+                    int iXPosition2 = iPositonXDeLaCase2;
+               }
+                    else{
+                    int iXPosition1 = iPositonXDeLaCase1;
+                    int iXPosition2 = iPositonXDeLaCase1;
+                    int iYPosition1 = iPositonYDeLaCase1 + 1;
+                    int iYPosition2 = iPositonYDeLaCase1 + 1;
+    }
+            }
+
+                    else{
+                int iXPosition1 = iPositonXDeLaCase2;
+                int iXPosition2 = iPositonXDeLaCase1;
+                int iYPosition1 = iPositonYDeLaCase1;
+                int iYPosition2 = iPositonYDeLaCase2;
+}
         }
         static void déchiffrer()
         {
@@ -151,15 +200,15 @@ namespace Playfair_chiffreur_déchiffreur
 
         }
 
-        static int trouverX(int numCase)
+        static int TrouverX(int numCase)
         {
             return numCase % 5;
         }
-        static int trouverY(int numCase)
+        static int TrouverY(int numCase)
         {
             return numCase / 5;
         }
-        static int trouverNumeroCase(int x, int y)
+        static int TrouverNumeroCase(int x, int y)
         {
             return x % 5 & y / 5;
         }

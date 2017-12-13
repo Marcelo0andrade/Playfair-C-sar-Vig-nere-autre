@@ -65,7 +65,6 @@ namespace Playfair_chiffreur_déchiffreur
             string strMotChiffrer = Console.ReadLine();
             char[] CNoEspace = {' ', '!', '?', '^', '"', '@', '#', '(',')','´','~','.',','};
             strMotChiffrer = strMotChiffrer.TrimEnd(CNoEspace);
-            Console.WriteLine(strMotChiffrer);
 
 
             for (int i = 0; i < strMotChiffrer.Length - 1; i++)
@@ -166,3 +165,47 @@ namespace Playfair_chiffreur_déchiffreur
         }
     }
 }
+
+/*TESTS
+A b c d e
+f g h i j
+k l M n o
+p q r s t
+u v w x y
+
+si on prends 'a' et 'm'
+position de la case 0 = 0 + 5 * 0
+position de la case 12 = 2 + 5 * 2
+
+iPositonXDeLaCase1=trouverX // de la lettre numéro 1
+iPositonYDeLaCase1=trouverY // de la lettre numéro 1
+iPositonXDeLaCase2=trouverX // de la lettre numéro 2
+iPositonXDeLaCase2=trouverY // de la lettre numéro 2
+
+
+    1)
+si (iPositonYDeLaCase1 / 5 = iPositonYDeLaCase2 / 5) {
+si (iPositonXDeLaCase1 = 4){
+iXPosition1 = iPositonXDeLaCase1-4
+iYPosition1 = iPositonYDeLaCase1
+}
+iPositonXDeLaCase2 = 4{
+iXPosition2 = iPositonXDeLaCase2-4
+iYPosition2 = iPositonYDeLaCase2
+}
+else{
+iXPosition1= position2(x + 1)
+iXPosition2= position1(x + 1)
+iYPosition1=iPositonYDeLaCase2
+iYPosition2=iPositonYDeLaCase2
+    }
+}
+
+    2)
+si (iPositonXDeLaCase1 % 5 = iPositonXDeLaCase2 % 5) {
+iXPosition1= position2(x)
+iXPosition2= position1(x)
+iYPosition1=
+iYPosition2=
+}
+*/

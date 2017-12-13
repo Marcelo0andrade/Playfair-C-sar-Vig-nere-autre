@@ -186,16 +186,16 @@ iPositonXDeLaCase2=trouverY // de la lettre numéro 2
     1)
 si (iPositonYDeLaCase1 / 5 = iPositonYDeLaCase2 / 5) {
 si (iPositonXDeLaCase1 = 4){
-iXPosition1 = iPositonXDeLaCase1-4
+iXPosition1 = iPositonXDeLaCase1 - 4
 iYPosition1 = iPositonYDeLaCase1
 }
-iPositonXDeLaCase2 = 4{
-iXPosition2 = iPositonXDeLaCase2-4
+si (iPositonXDeLaCase2 = 4){
+iXPosition2 = iPositonXDeLaCase2 - 4
 iYPosition2 = iPositonYDeLaCase2
 }
 else{
-iXPosition1= position2(x + 1)
-iXPosition2= position1(x + 1)
+iXPosition1= iPositonXDeLaCase1 + 1
+iXPosition2= iPositonXDeLaCase2 + 1
 iYPosition1=iPositonYDeLaCase2
 iYPosition2=iPositonYDeLaCase2
     }
@@ -203,9 +203,28 @@ iYPosition2=iPositonYDeLaCase2
 
     2)
 si (iPositonXDeLaCase1 % 5 = iPositonXDeLaCase2 % 5) {
-iXPosition1= position2(x)
-iXPosition2= position1(x)
-iYPosition1=
-iYPosition2=
+si (iPositonYDeLaCase1 = 4){
+iYPosition1 = iPositonYDeLaCase1 - 4
+iXPosition1 = iPositonXDeLaCase1
 }
+si (iPositonYDeLaCase2 = 4){
+iYPosition2 = iPositonYDeLaCase2 - 4
+iXPosition2 = iPositonXDeLaCase2
+}
+else{
+iXPosition1= iPositonXDeLaCase1
+iXPosition2= iPositonXDeLaCase1
+iYPosition1=iPositonYDeLaCase1 + 1
+iYPosition2=iPositonYDeLaCase1 + 1
+    }
+}
+
+    3)
+else{
+iXPosition1=iPositonXDeLaCase2
+iXPosition2=iPositonXDeLaCase1
+iYPosition1=iPositonYDeLaCase1
+iYPosition2=iPositonYDeLaCase2
+}
+
 */

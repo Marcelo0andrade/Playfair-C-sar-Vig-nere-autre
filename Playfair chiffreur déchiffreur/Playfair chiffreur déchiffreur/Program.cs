@@ -27,19 +27,27 @@ namespace Playfair_chiffreur_déchiffreur
             do
             {
                 Console.Clear();
-                Console.WriteLine("\n Saisissez: \n ( c ) pour chiffrer \n ( d ) pour déchiffrer");
+                Console.WriteLine("\n Saisissez: \n ( C ) pour chiffrer \n ( D ) pour déchiffrer (en majuscule)");
                 char csaisie = Console.ReadKey().KeyChar;
                 switch (csaisie)
                 {
                     case 'c':
+                    case 'C':
                         chiffrer();
                         break;
+                    case 'D':
                     case 'd':
                         déchiffrer();
                         break;
                 }
-                Console.WriteLine("\n Voulez vous quitter l'application ? ( o / n )");
+                Console.WriteLine("\n Voulez vous quitter l'application ? ( O / N ) toujours en majuscule");
                 char cPartir = Console.ReadKey().KeyChar;
+                if (cPartir == 'O')
+                {
+                    Console.WriteLine("\nMerci de la visite");
+                    Thread.Sleep(1000);
+                    Environment.Exit(0);
+                }
                 if (cPartir == 'o')
                 {
                     Console.WriteLine("\nMerci de la visite");
@@ -53,9 +61,13 @@ namespace Playfair_chiffreur_déchiffreur
         static void chiffrer()
         {
             Console.WriteLine("\n Chiffrer");                                                   //Demande utilisateur des choses 
-            Console.WriteLine("Inserez ce que vous voulez chiffrer svp !(en majuscule)");
+            Console.WriteLine("Inserez ce que vous voulez chiffrer (en majuscule,pas de caratère spéciaux et veuillez écrire tout collé svp !)");
             string strMotChiffrer = Console.ReadLine();
-           
+            char[] CNoEspace = {' ', '!', '?', '^', '"', '@', '#', '(',')','´','~','.',','};
+            strMotChiffrer = strMotChiffrer.TrimEnd(CNoEspace);
+            Console.WriteLine(strMotChiffrer);
+
+
             for (int i = 0; i < strMotChiffrer.Length - 1; i++)
             {
                 Char cDivise = strMotChiffrer[i];
@@ -64,7 +76,7 @@ namespace Playfair_chiffreur_déchiffreur
                     strMotChiffrer = strMotChiffrer.Insert(i + 1, "X");
                 }
             }
-            if(strMotChiffrer.Length % 2 == 1)
+            if (strMotChiffrer.Length % 2 == 1)
             {
                 strMotChiffrer += "X";
             }
@@ -81,18 +93,18 @@ namespace Playfair_chiffreur_déchiffreur
             }
             else
             {
-                    if (!(strfinal.Contains(cLettre)))
-                    {
-                        strfinal += cLettre;
-                    }
+                if (!(strfinal.Contains(cLettre)))
+                {
+                    strfinal += cLettre;
+                }
                 for (int i = 0; i < strMotClef.Length; i++)                                   //pour i à longueur strmotclef faire:              
                 {
                     if (!(strfinal.Contains(strMotClef[i])))                              //si strfianl est ne contient pas strmotclef longueur 
                     {
-                        
+
                         strfinal += strMotClef[i];                               // ajouter à strFinal strFinal et strMotClef jusqu'à longeueur de i 
                     }
-                    
+
                 }
                 for (int i = 0; i < strAlphabet.Length; i++)
                 {
@@ -104,11 +116,11 @@ namespace Playfair_chiffreur_déchiffreur
             }
             Console.Clear();
 
-            Console.WriteLine("l'alphabet est le suivant : {0}",strfinal);
+            Console.WriteLine("l'alphabet est le suivant : {0}", strfinal);
             Console.WriteLine("le mot à chiffrer est le suivant : {0}", strMotChiffrer);
             int ilength;
             int istartIndex;
-            char[] cfinal = strfinal.ToCharArray(1,25);
+            char[] cfinal = strfinal.ToCharArray(1, 25);
             string strsubstring;
             Console.WriteLine(cfinal);
             for (int i = 0; i < strMotChiffrer.Length; i++)
@@ -122,8 +134,7 @@ namespace Playfair_chiffreur_déchiffreur
                 }
             }
             strfinal = new string(cfinal);
-        Console.ReadKey();
-    }
+        }
         static void déchiffrer()
         {
             Console.Clear();
@@ -143,13 +154,13 @@ namespace Playfair_chiffreur_déchiffreur
 
         static int trouverX(int numCase)
         {
-                return numCase % 5;
+            return numCase % 5;
         }
         static int trouverY(int numCase)
         {
-               return numCase / 5;
+            return numCase / 5;
         }
-        static int trouverNumeroCase(int x,int y)
+        static int trouverNumeroCase(int x, int y)
         {
             return x % 5 & y / 5;
         }

@@ -126,7 +126,9 @@ namespace Playfair_chiffreur_déchiffreur
                 {
                     int x = i % 5;
                     int y = i / 5;
-                    char[] cnumcase = strfinal.ToCharArray(i, 1);
+                    char[] ccase = strfinal.ToCharArray(i, 1);
+                    int inumecase = i;
+                Console.WriteLine("numéro de la case : {2} x = {0} y = {1}", x, y,inumecase);
                 }
                 Console.ReadKey();
     }

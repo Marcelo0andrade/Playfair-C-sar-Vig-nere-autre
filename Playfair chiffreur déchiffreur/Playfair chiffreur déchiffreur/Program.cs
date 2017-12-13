@@ -122,16 +122,6 @@ namespace Playfair_chiffreur_déchiffreur
                 }
             }
             strfinal = new string(cfinal);
-            int a = 0;
-            for (int i = 0; i < strfinal.Length; i++)
-            {
-                int iNumcase = a++;
-               // strfinal.ToCharArray(0, 1);
-                int ix = trouverX(iNumcase);
-                int iy = trouverY(iNumcase);
-                iNumcase = trouverNumeroCase(ix, iy);
-            }
-
         Console.ReadKey();
     }
         static void déchiffrer()

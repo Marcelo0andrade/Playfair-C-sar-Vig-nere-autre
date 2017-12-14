@@ -74,7 +74,6 @@ namespace Playfair_chiffreur_déchiffreur
             {
                 strMotChiffrer += "X";
             }
-            Console.WriteLine(strMotChiffrer);
             Console.WriteLine("Veuillez me donner votre mot clef (en majuscule)");             //Demande utilisateur des choses 
             string strMotClef = Console.ReadLine();                                           //Demande utilisateur des choses 
             Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");   //Demande utilisateur des choses 
@@ -143,17 +142,21 @@ namespace Playfair_chiffreur_déchiffreur
                 char cLettreChiffree1 = strfinal[numCaseChiffree1];
                 char cLettreChiffree2 = strfinal[numCaseChiffree2];
                 strChiffre += "" + cLettreChiffree1 + cLettreChiffree2;
-                Console.WriteLine(strChiffre);
-                Console.WriteLine(cLettreChiffree1);
-                Console.WriteLine(cLettreChiffree2);
             
                 
             }
+            Console.Clear();
+            Console.WriteLine("Votre mot clef est : {0}", strMotClef);
+            Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+            Console.WriteLine("Votre Lettre non utilisé est : {0}", cLettre);
+            Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+            Console.WriteLine("Votre mot chiffré est : {0}", strChiffre);
+            Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         }
         static void déchiffrer()
         {
             Console.WriteLine("\n Déchiffrer");                                                   //Demande utilisateur des choses 
-            Console.WriteLine("Inserez ce que vous voulez chiffrer (en majuscule,pas de caratère spéciaux et veuillez écrire tout collé svp !)");
+            Console.WriteLine("Inserez ce que vous voulez Déchiffrer (en majuscule,pas de caratère spéciaux et veuillez écrire tout collé svp !)");
             string strMotChiffrer = Console.ReadLine();
             char[] CNoEspace = { ' ', '!', '?', '^', '"', '@', '#', '(', ')', '´', '~', '.', ',' };
             strMotChiffrer = strMotChiffrer.TrimEnd(CNoEspace);
@@ -170,7 +173,6 @@ namespace Playfair_chiffreur_déchiffreur
             {
                 strMotChiffrer += "X";
             }
-            Console.WriteLine(strMotChiffrer);
             Console.WriteLine("Veuillez me donner votre mot clef (en majuscule)");             //Demande utilisateur des choses 
             string strMotClef = Console.ReadLine();                                           //Demande utilisateur des choses 
             Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");   //Demande utilisateur des choses 
@@ -201,9 +203,6 @@ namespace Playfair_chiffreur_déchiffreur
                     }
                 }
             }
-            Console.Clear();
-            Console.WriteLine("l'alphabet est le suivant : {0}", strfinal);
-            Console.WriteLine("le mot à Déchiffrer est le suivant : {0}", strMotChiffrer);
             strfinal = strfinal.Substring(1); // Retirer la lettre interdite
             string strChiffre = "";
             for (int i = 0; i < strMotChiffrer.Length; i += 2)
@@ -239,12 +238,16 @@ namespace Playfair_chiffreur_déchiffreur
                 char cLettreChiffree1 = strfinal[numCaseChiffree1];
                 char cLettreChiffree2 = strfinal[numCaseChiffree2];
                 strChiffre += "" + cLettreChiffree1 + cLettreChiffree2;
-                Console.WriteLine(strChiffre);
-                Console.WriteLine(cLettreChiffree1);
-                Console.WriteLine(cLettreChiffree2);
 
 
             }
+            Console.Clear();
+            Console.WriteLine("Votre mot clef est : {0}", strMotClef);
+            Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+            Console.WriteLine("Votre Lettre non utilisé est : {0}", cLettre);
+            Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+            Console.WriteLine("Votre mot déchiffré est : {0}",strChiffre);
+            Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         }
         static int TrouverX(int numCase)
         {
@@ -260,62 +263,3 @@ namespace Playfair_chiffreur_déchiffreur
         }
     }
 }
-/*TESTS
- * 
- * 
- * A DEMANDER AU PROF: LE PROGRAMME PASSE PARTOUT (SI)
-A b c d e
-f g h i j
-k l M n o
-p q r s t
-u v w x y
-si on prends 'a' et 'm'
-position de la case 0 = 0 + 5 * 0
-position de la case 12 = 2 + 5 * 2
-iPositonXDeLaCase1=trouverX // de la lettre numéro 1
-iPositonYDeLaCase1=trouverY // de la lettre numéro 1
-iPositonXDeLaCase2=trouverX // de la lettre numéro 2
-iPositonXDeLaCase2=trouverY // de la lettre numéro 2
-
-    1)
-si (iPositonYDeLaCase1 / 5 = iPositonYDeLaCase2 / 5) {
-si (iPositonXDeLaCase1 = 4){
-iXPosition1 = iPositonXDeLaCase1 - 4
-iYPosition1 = iPositonYDeLaCase1
-}
-si (iPositonXDeLaCase2 = 4){
-iXPosition2 = iPositonXDeLaCase2 - 4
-iYPosition2 = iPositonYDeLaCase2
-}
-else{
-iXPosition1= iPositonXDeLaCase1 + 1
-iXPosition2= iPositonXDeLaCase2 + 1
-iYPosition1=iPositonYDeLaCase2
-iYPosition2=iPositonYDeLaCase2
-    }
-}
-    2)
-si (iPositonXDeLaCase1 % 5 = iPositonXDeLaCase2 % 5) {
-si (iPositonYDeLaCase1 = 4){
-iYPosition1 = iPositonYDeLaCase1 - 4
-iXPosition1 = iPositonXDeLaCase1
-}
-si (iPositonYDeLaCase2 = 4){
-iYPosition2 = iPositonYDeLaCase2 - 4
-iXPosition2 = iPositonXDeLaCase2
-}
-else{
-iXPosition1= iPositonXDeLaCase1
-iXPosition2= iPositonXDeLaCase1
-iYPosition1=iPositonYDeLaCase1 + 1
-iYPosition2=iPositonYDeLaCase1 + 1
-    }
-}
-    3)
-else{
-iXPosition1=iPositonXDeLaCase2
-iXPosition2=iPositonXDeLaCase1
-iYPosition1=iPositonYDeLaCase1
-iYPosition2=iPositonYDeLaCase2
-}
-*/

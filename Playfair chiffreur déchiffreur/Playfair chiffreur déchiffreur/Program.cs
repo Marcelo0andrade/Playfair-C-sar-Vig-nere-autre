@@ -142,7 +142,7 @@ namespace Playfair_chiffreur_déchiffreur
                 }
                 char cLettreChiffree1 = strfinal[numCaseChiffree1];
                 char cLettreChiffree2 = strfinal[numCaseChiffree2];
-                strChiffre += cLettreChiffree1+ cLettreChiffree2;
+                strChiffre += "" + cLettreChiffree1 + cLettreChiffree2;
                 Console.WriteLine(strChiffre);
                 Console.WriteLine(cLettreChiffree1);
                 Console.WriteLine(cLettreChiffree2);
@@ -152,17 +152,99 @@ namespace Playfair_chiffreur_déchiffreur
         }
         static void déchiffrer()
         {
+            Console.WriteLine("\n Déchiffrer");                                                   //Demande utilisateur des choses 
+            Console.WriteLine("Inserez ce que vous voulez chiffrer (en majuscule,pas de caratère spéciaux et veuillez écrire tout collé svp !)");
+            string strMotChiffrer = Console.ReadLine();
+            char[] CNoEspace = { ' ', '!', '?', '^', '"', '@', '#', '(', ')', '´', '~', '.', ',' };
+            strMotChiffrer = strMotChiffrer.TrimEnd(CNoEspace);
+
+            for (int i = 0; i < strMotChiffrer.Length - 1; i++)
+            {
+                Char cDivise = strMotChiffrer[i];
+                if (strMotChiffrer[i] == strMotChiffrer[i + 1])
+                {
+                    strMotChiffrer = strMotChiffrer.Insert(i + 1, "X");
+                }
+            }
+            if (strMotChiffrer.Length % 2 == 1)
+            {
+                strMotChiffrer += "X";
+            }
+            Console.WriteLine(strMotChiffrer);
+            Console.WriteLine("Veuillez me donner votre mot clef (en majuscule)");             //Demande utilisateur des choses 
+            string strMotClef = Console.ReadLine();                                           //Demande utilisateur des choses 
+            Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");   //Demande utilisateur des choses 
+            char cLettre = Console.ReadKey().KeyChar;                                       //Demande utilisateur des choses 
+            string strfinal = "";
+            if (strMotClef.Contains(cLettre))                                            //si le mot clef ne contient pas clettre il l'ajoute
+            {
+                Console.WriteLine("Erreur désolé Votre mot clef contient la lettre non utilisé");                          //Verfifie si la lettre non utilisé est dans le mot
+            }
+            else
+            {
+                if (!(strfinal.Contains(cLettre)))
+                {
+                    strfinal += cLettre;
+                }
+                for (int i = 0; i < strMotClef.Length; i++)                                   //pour i à longueur strmotclef faire:              
+                {
+                    if (!(strfinal.Contains(strMotClef[i])))                              //si strfianl est ne contient pas strmotclef longueur 
+                    {
+                        strfinal += strMotClef[i];                               // ajouter à strFinal strFinal et strMotClef jusqu'à longeueur de i 
+                    }
+                }
+                for (int i = 0; i < strAlphabet.Length; i++)
+                {
+                    if (!(strfinal.Contains(strAlphabet[i])))
+                    {
+                        strfinal += strAlphabet[i];
+                    }
+                }
+            }
             Console.Clear();
-            String value = "This is a string.";
-            int startIndex = 0;
-            int length = 2;
-            String substring = value.Substring(startIndex, length);
-            Console.WriteLine(substring);
-            Console.WriteLine("\n Déchiffrer");
-            Console.WriteLine("Veuillez me donner votre mot clef");
-            string strMotClef = Console.ReadLine();
-            Console.WriteLine("Veuillez me donner une lettre non utilisé");
-            char cLettre = Console.ReadKey().KeyChar;
+            Console.WriteLine("l'alphabet est le suivant : {0}", strfinal);
+            Console.WriteLine("le mot à Déchiffrer est le suivant : {0}", strMotChiffrer);
+            strfinal = strfinal.Substring(1); // Retirer la lettre interdite
+            string strChiffre = "";
+            for (int i = 0; i < strMotChiffrer.Length; i += 2)
+            {
+                char cLettre1 = strMotChiffrer[i];
+                char cLettre2 = strMotChiffrer[i + 1];
+
+                int numCase1 = strfinal.IndexOf(cLettre1);
+                int numCase2 = strfinal.IndexOf(cLettre2);
+                int iX1 = TrouverX(numCase1);
+                int iY1 = TrouverY(numCase1);
+                int iX2 = TrouverX(numCase2);
+                int iY2 = TrouverY(numCase2);
+
+                int numCaseChiffree1;
+                int numCaseChiffree2;
+                if (iX1 == iX2)
+                {
+                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 4) % 5);
+                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 4) % 5);
+                }
+                else if (iY1 == iY2)
+                {
+                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 4) % 5, iY1);
+                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 4) % 5, iY2);
+                }
+                else
+                {
+                    numCaseChiffree1 = TrouverNumeroCase(iY2, iX1);
+                    numCaseChiffree2 = TrouverNumeroCase(iY1, iX2);
+
+                }
+                char cLettreChiffree1 = strfinal[numCaseChiffree1];
+                char cLettreChiffree2 = strfinal[numCaseChiffree2];
+                strChiffre += "" + cLettreChiffree1 + cLettreChiffree2;
+                Console.WriteLine(strChiffre);
+                Console.WriteLine(cLettreChiffree1);
+                Console.WriteLine(cLettreChiffree2);
+
+
+            }
         }
         static int TrouverX(int numCase)
         {
@@ -174,7 +256,7 @@ namespace Playfair_chiffreur_déchiffreur
         }
         static int TrouverNumeroCase(int x, int y)
         {
-            return x % 5 & y / 5;
+            return x + 5 * y;
         }
     }
 }

@@ -219,7 +219,7 @@ namespace Playfair_chiffreur_déchiffreur
                 int iY2 = TrouverY(numCase2);
 
                 int numCaseChiffree1;
-                int numCaseChiffree2;
+                int numCaseChiffree2;                                                               
                 if (iX1 == iX2)
                 {
                     numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 4) % 5);
@@ -232,8 +232,8 @@ namespace Playfair_chiffreur_déchiffreur
                 }
                 else
                 {
-                    numCaseChiffree1 = TrouverNumeroCase(iY2, iX1);
-                    numCaseChiffree2 = TrouverNumeroCase(iY1, iX2);
+                    numCaseChiffree1 = TrouverNumeroCase(iX2, iY1);
+                    numCaseChiffree2 = TrouverNumeroCase(iX1, iY2);
 
                 }
                 char cLettreChiffree1 = strfinal[numCaseChiffree1];

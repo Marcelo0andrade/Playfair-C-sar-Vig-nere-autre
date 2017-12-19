@@ -24,6 +24,11 @@ namespace Playfair_chiffreur_déchiffreur
         {
             do
             {
+                Console.WriteLine("\n Saisissez: \n ( P ) pour Playfair \n ( C ) pour César (en majuscule)");
+                char cSaisirAlgo = Console.ReadKey().KeyChar;
+                if (cSaisirAlgo == 'P')
+                {
+                   
                 Console.Clear();
                 Console.WriteLine("\n Saisissez: \n ( C ) pour chiffrer \n ( D ) pour déchiffrer (en majuscule)");
                 char csaisie = Console.ReadKey().KeyChar;
@@ -31,11 +36,11 @@ namespace Playfair_chiffreur_déchiffreur
                 {
                     case 'c':
                     case 'C':
-                        chiffrer();
+                        chiffrerPlayfair();
                         break;
                     case 'D':
                     case 'd':
-                        déchiffrer();
+                        déchiffrerPlayfair();
                         break;
                 }
                 Console.WriteLine("\n Voulez vous quitter l'application ? ( O / N ) toujours en majuscule");
@@ -52,9 +57,24 @@ namespace Playfair_chiffreur_déchiffreur
                     Thread.Sleep(1000);
                     Environment.Exit(0);
                 }
+                }
+                if(cSaisirAlgo == 'C'){
+                    Console.WriteLine("\n Saisissez: \n ( C ) pour chiffrer \n ( D ) pour déchiffrer (en majuscule)");
+                    char csaisie = Console.ReadKey().KeyChar;
+                    switch (csaisie)
+                    {
+                        case 'c':
+                        case 'C':chiffrerCésar();
+                            break;
+                        case 'd':
+                        case 'D':
+                            déchiffrerCésar();
+                            break;
+                    }
+                }
             } while (istart == 0);
         }
-        static void chiffrer()
+        static void chiffrerPlayfair()
         {
             Console.WriteLine("\n Chiffrer");                                                   //Demande utilisateur des choses 
             Console.WriteLine("Inserez ce que vous voulez chiffrer (en majuscule,pas de caratère spéciaux et veuillez écrire tout collé svp !)");
@@ -153,7 +173,7 @@ namespace Playfair_chiffreur_déchiffreur
             Console.WriteLine("Votre mot chiffré est : {0}", strChiffre);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         }
-        static void déchiffrer()
+        static void déchiffrerPlayfair()
         {
             Console.WriteLine("\n Déchiffrer");                                                   //Demande utilisateur des choses 
             Console.WriteLine("Inserez ce que vous voulez Déchiffrer (en majuscule,pas de caratère spéciaux et veuillez écrire tout collé svp !)");
@@ -260,6 +280,25 @@ namespace Playfair_chiffreur_déchiffreur
         static int TrouverNumeroCase(int x, int y)
         {
             return x + 5 * y;
+        }
+        static void déchiffrerCésar()
+        {
+            Console.WriteLine("Saisir le mot a déchiffrer (En majuscule svp)");
+            string strSaisirCésar = Console.ReadLine();
+            for (int i = 0; i < strSaisirCésar.Length; i++) //65 à 90 l'alphabet majuscule en ascii
+            {
+                //lettre i -4
+            }
+        }
+        static void chiffrerCésar()
+        {
+            Console.WriteLine("Saisir le mot a chiffrer (En majuscule svp)");
+            string strSaisirCésar = Console.ReadLine();
+            for (int i = 0; i < strSaisirCésar.Length; i++) //65 à 90 l'alphabet majuscule en ascii
+            {
+                //lettre i +4
+            }
+
         }
     }
 }

@@ -287,7 +287,7 @@ namespace Playfair_chiffreur_déchiffreur
             string strSaisirCésar = Console.ReadLine();
             for (int i = 0; i < strSaisirCésar.Length; i++) //65 à 90 l'alphabet majuscule en ascii
             {
-                //lettre i -4
+                Console.WriteLine(strSaisirCésar[i]);//lettre strSaisirCésar[i] -4 exemple 70 = 66
             }
         }
         static void chiffrerCésar()

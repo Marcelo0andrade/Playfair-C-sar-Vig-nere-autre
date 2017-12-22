@@ -285,19 +285,25 @@ namespace Playfair_chiffreur_déchiffreur
         {
             Console.WriteLine("Saisir le mot a déchiffrer (En majuscule svp)");
             string strSaisirCésar = Console.ReadLine();
+            string strDéchiffrerCésar = "";
             for (int i = 0; i < strSaisirCésar.Length; i++) //65 à 90 l'alphabet majuscule en ascii
             {
-                Console.WriteLine(strSaisirCésar[i]);//lettre strSaisirCésar[i] -4 exemple 70 = 66
+                int iDéchifferCésar = strSaisirCésar[i] -4 ;//lettre strSaisirCésar[i] -4 exemple 70 = 66
+                strDéchiffrerCésar += Convert.ToString(iDéchifferCésar);//64 = Z ; 63 = Y ;62 = X ; 61 = W;
             }
+                Console.WriteLine(strDéchiffrerCésar);
         }
         static void chiffrerCésar()
         {
             Console.WriteLine("Saisir le mot a chiffrer (En majuscule svp)");
             string strSaisirCésar = Console.ReadLine();
+            string strChiffrerCésar = "";
             for (int i = 0; i < strSaisirCésar.Length; i++) //65 à 90 l'alphabet majuscule en ascii
             {
-                //lettre i +4
+                int iChifferCésar = strSaisirCésar[i] + 4;//lettre strSaisirCésar[i] + 4 exemple 70 = 66
+                strChiffrerCésar += Convert.ToString(iChifferCésar);// 91 = A; 92 = B ;93 = C ; 94 = D;
             }
+                Console.WriteLine(strChiffrerCésar);
 
         }
     }

@@ -144,11 +144,11 @@ namespace Playfair_chiffreur_déchiffreur
                 
             }
             Console.Clear();
-            Console.WriteLine("Votre mot clef est : {0}", strMotClef);
+            Console.WriteLine(@"Votre mot clef est : {0}", strMotClef);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Console.WriteLine("Votre Lettre non utilisé est : {0}", cLettre);
+            Console.WriteLine(@"Votre Lettre non utilisé est : {0}", cLettre);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Console.WriteLine("Votre mot chiffré est : {0}", strChiffre);
+            Console.WriteLine(@"Votre mot chiffré est : {0}", strChiffre);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         }
         static void déchiffrer()

@@ -18,7 +18,7 @@ namespace Playfair_chiffreur_déchiffreur
 {
     class Program
     {
-        static string strAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        static string strAlphabet = @"♥❥ღ❤⋆!#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ";
         const int istart = 0;
         static void Main(string[] args)
         {

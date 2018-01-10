@@ -18,7 +18,7 @@ namespace Playfair_chiffreur_déchiffreur
 {
     class Program
     {
-        static string strAlphabet = @"♥❥ღ❤⋆!#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ";
+        static string strAlphabet = @"♥❥ღ ⋆!#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ";
         const int istart = 0;
         static void Main(string[] args)
         {
@@ -57,10 +57,8 @@ namespace Playfair_chiffreur_déchiffreur
         static void chiffrer()
         {
             Console.WriteLine("\n Chiffrer");                                                   //Demande utilisateur des choses 
-            Console.WriteLine("Inserez ce que vous voulez chiffrer (en majuscule,pas de caratère spéciaux et veuillez écrire tout collé svp !)");
+            Console.WriteLine("Inserez ce que vous voulez chiffrer (veuillez écrire tout collé svp !)");
             string strMotChiffrer = Console.ReadLine();
-            char[] CNoEspace = { ' ', '!', '?', '^', '"', '@', '#', '(', ')', '´', '~', '.', ',' };
-            strMotChiffrer = strMotChiffrer.TrimEnd(CNoEspace);
 
             for (int i = 0; i < strMotChiffrer.Length - 1; i++)
             {
@@ -74,9 +72,9 @@ namespace Playfair_chiffreur_déchiffreur
             {
                 strMotChiffrer += "X";
             }
-            Console.WriteLine("Veuillez me donner votre mot clef (en majuscule)");             //Demande utilisateur des choses 
+            Console.WriteLine("Veuillez me donner votre mot clef ");             //Demande utilisateur des choses 
             string strMotClef = Console.ReadLine();                                           //Demande utilisateur des choses 
-            Console.WriteLine("Veuillez me donner une lettre non utilisé (en majuscule)");   //Demande utilisateur des choses 
+            Console.WriteLine("Veuillez me donner une lettre non utilisé");   //Demande utilisateur des choses 
             char cLettre = Console.ReadKey().KeyChar;                                       //Demande utilisateur des choses 
             string strfinal = "";
             if (strMotClef.Contains(cLettre))                                            //si le mot clef ne contient pas clettre il l'ajoute
@@ -125,13 +123,13 @@ namespace Playfair_chiffreur_déchiffreur
                 int numCaseChiffree2;
                 if (iX1 == iX2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 1) % 5);
-                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 1) % 5);
+                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 1) % 15);
+                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 1) % 15);
                 }
                 else if (iY1 == iY2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 1) % 5, iY1);
-                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 1) % 5, iY2);
+                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 1) % 15, iY1);
+                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 1) % 15, iY2);
                 }
                 else
                 {
@@ -156,10 +154,8 @@ namespace Playfair_chiffreur_déchiffreur
         static void déchiffrer()
         {
             Console.WriteLine("\n Déchiffrer");                                                   //Demande utilisateur des choses 
-            Console.WriteLine("Inserez ce que vous voulez Déchiffrer (en majuscule,pas de caratère spéciaux et veuillez écrire tout collé svp !)");
+            Console.WriteLine("Inserez ce que vous voulez Déchiffrer (en majuscule et veuillez écrire tout collé svp !)");
             string strMotChiffrer = Console.ReadLine();
-            char[] CNoEspace = { ' ', '!', '?', '^', '"', '@', '#', '(', ')', '´', '~', '.', ',' };
-            strMotChiffrer = strMotChiffrer.TrimEnd(CNoEspace);
 
             for (int i = 0; i < strMotChiffrer.Length - 1; i++)
             {
@@ -221,13 +217,13 @@ namespace Playfair_chiffreur_déchiffreur
                 int numCaseChiffree2;                                                               
                 if (iX1 == iX2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 4) % 5);
-                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 4) % 5);
+                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 14) % 15);
+                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 14) % 15);
                 }
                 else if (iY1 == iY2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 4) % 5, iY1);
-                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 4) % 5, iY2);
+                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 14) % 15, iY1);
+                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 14) % 15, iY2);
                 }
                 else
                 {
@@ -251,15 +247,15 @@ namespace Playfair_chiffreur_déchiffreur
         }
         static int TrouverX(int numCase)
         {
-            return numCase % 5;
+            return numCase % 15;
         }
         static int TrouverY(int numCase)
         {
-            return numCase / 5;
+            return numCase / 15;
         }
         static int TrouverNumeroCase(int x, int y)
         {
-            return x + 5 * y;
+            return x + 15 * y;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Playfair_chiffreur_déchiffreur
 {
     class Program
     {
-        static string strAlphabet = @" !#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~☼‚ƒ„…ˆ‹‘’“”–—˜™›¡¢£¤¥¦§¨©«¬­¯°²³´·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜßàáâãäåæçèéêëìíîïðñòóôõö÷ùúûüÿ"; //169 donc 13 * 13
+        static string strAlphabet = @" !#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~‚ˆ‹‘’”–—›¡¨«´·¸»ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ÙÚÛÜßàáâãäåæçèéêëìíîïðñòóôõö÷ùúûüÿ"; //169 donc 13 * 13
         const int istart = 0;
         static void Main(string[] args)
         {
@@ -131,13 +131,13 @@ namespace Playfair_chiffreur_déchiffreur
                 int numCaseChiffree2;
                 if (iX1 == iX2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 1) % 14);
-                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 1) % 14);
+                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 1) % 13);
+                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 1) % 13);
                 }
                 else if (iY1 == iY2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 1) % 14, iY1);
-                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 1) % 14, iY2);
+                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 1) % 13, iY1);
+                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 1) % 13, iY2);
                 }
                 else
                 {
@@ -225,13 +225,13 @@ namespace Playfair_chiffreur_déchiffreur
                 int numCaseChiffree2;                                                               
                 if (iX1 == iX2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 13) % 14);
-                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 13) % 14);
+                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 12) % 13);
+                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 12) % 13);
                 }
                 else if (iY1 == iY2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 13) % 14, iY1);
-                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 13) % 14, iY2);
+                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 12) % 13, iY1);
+                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 12) % 13, iY2);
                 }
                 else
                 {
@@ -255,15 +255,15 @@ namespace Playfair_chiffreur_déchiffreur
         }
         static int TrouverX(int numCase)
         {
-            return numCase % 14;
+            return numCase % 13;
         }
         static int TrouverY(int numCase)
         {
-            return numCase / 14;
+            return numCase / 13;
         }
         static int TrouverNumeroCase(int x, int y)
         {
-            return x + 14 * y;
+            return x + 13 * y;
         }
     }
 }

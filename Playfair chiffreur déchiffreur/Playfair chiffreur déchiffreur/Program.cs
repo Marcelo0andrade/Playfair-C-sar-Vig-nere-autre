@@ -18,13 +18,13 @@ namespace Playfair_chiffreur_déchiffreur
 {
     class Program
     {
-        static string strAlphabet = @" !#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…ˆ‹‘’“”–—˜™›¡¢£¤¥¦§¨©«¬­¯°²³´·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜßàáâãäåæçèéêëìíîïðñòóôõö÷ùúûüÿ";
+        static string strAlphabet = @" !#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~☼‚ƒ„…ˆ‹‘’“”–—˜™›¡¢£¤¥¦§¨©«¬­¯°²³´·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜßàáâãäåæçèéêëìíîïðñòóôõö÷ùúûüÿ";
         const int istart = 0;
         static void Main(string[] args)
         {
             do
             {
-               
+                Console.Clear();
                 Console.WriteLine("\n Saisissez: \n ( C ) pour chiffrer \n ( D ) pour déchiffrer");
                 char csaisie = Console.ReadKey().KeyChar;
                 switch (csaisie)
@@ -144,11 +144,11 @@ namespace Playfair_chiffreur_déchiffreur
                 
             }
             Console.Clear();
-            Console.WriteLine(@"Votre mot clef est :{0}", strMotClef);
+            Console.WriteLine(@"Votre mot clef est :-->{0}<--", strMotClef);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Console.WriteLine(@"Votre Lettre non utilisé est :{0}", cLettre);
+            Console.WriteLine(@"Votre Lettre non utilisé est :-->{0}<--", cLettre);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Console.WriteLine(@"Votre mot chiffré est :{0}", strChiffre);
+            Console.WriteLine(@"Votre mot chiffré est :-->{0}<--", strChiffre);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         }
         static void déchiffrer()
@@ -238,11 +238,11 @@ namespace Playfair_chiffreur_déchiffreur
 
             }
             Console.Clear();
-            Console.WriteLine("Votre mot clef est :{0}", strMotClef);
+            Console.WriteLine("Votre mot clef est :-->{0}<--", strMotClef);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Console.WriteLine("Votre Lettre non utilisé est :{0}", cLettre);
+            Console.WriteLine("Votre Lettre non utilisé est :-->{0}<--", cLettre);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Console.WriteLine("Votre mot déchiffré est :{0}",strChiffre);
+            Console.WriteLine("Votre mot déchiffré est :-->{0}<--",strChiffre);
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         }
         static int TrouverX(int numCase)

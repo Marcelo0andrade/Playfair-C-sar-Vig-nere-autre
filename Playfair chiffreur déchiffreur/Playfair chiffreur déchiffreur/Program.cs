@@ -18,7 +18,7 @@ namespace Playfair_chiffreur_déchiffreur
 {
     class Program
     {
-        static string strAlphabet = @" !#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~‚ˆ‹‘’”–—›¡¨«´·¸»ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ÙÚÛÜßàáâãäåæçèéêëìíîïðñòóôõö÷ùúûüÿ"; //169 donc 13 * 13
+        static string strAlphabet = @" !#$%&()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ˆ”¡¨«´·»ÀÁÂÄÇÈÉÊËÌÍÎÏÐÒÓÖ×ÙÚÜàáâãäçèéêëìíîïòóöùúûü"; //144 donc 12 * 12
         const int istart = 0;
         static void Main(string[] args)
         {
@@ -33,6 +33,7 @@ namespace Playfair_chiffreur_déchiffreur
                 Console.WriteLine(@" \______  /|___|  /|__| |__|    |__|    |__|    \___  >|____/  |__|   ");
                 Console.WriteLine(@"        \/      \/                                  \/                ");
                 Console.WriteLine(@"-------------------------------------------------------------------------");
+                Console.WriteLine(@" !#$%&()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ˆ”¡¨«´·»ÀÁÂÄÇÈÉÊËÌÍÎÏÐÒÓÖ×ÙÚÜàáâãäçèéêëìíîïòóöùúûü");
                 Console.WriteLine("\n Saisissez: \n ( C ) pour chiffrer \n ( D ) pour déchiffrer");
                 char csaisie = Console.ReadKey().KeyChar;
                 switch (csaisie)
@@ -131,13 +132,13 @@ namespace Playfair_chiffreur_déchiffreur
                 int numCaseChiffree2;
                 if (iX1 == iX2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 1) % 13);
-                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 1) % 13);
+                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 1) % 12);
+                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 1) % 12);
                 }
                 else if (iY1 == iY2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 1) % 13, iY1);
-                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 1) % 13, iY2);
+                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 1) % 12, iY1);
+                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 1) % 12, iY2);
                 }
                 else
                 {
@@ -225,13 +226,13 @@ namespace Playfair_chiffreur_déchiffreur
                 int numCaseChiffree2;                                                               
                 if (iX1 == iX2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 12) % 13);
-                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 12) % 13);
+                    numCaseChiffree1 = TrouverNumeroCase(iX1, (iY1 + 11) % 12);
+                    numCaseChiffree2 = TrouverNumeroCase(iX2, (iY2 + 11) % 12);
                 }
                 else if (iY1 == iY2)
                 {
-                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 12) % 13, iY1);
-                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 12) % 13, iY2);
+                    numCaseChiffree1 = TrouverNumeroCase((iX1 + 11) % 12, iY1);
+                    numCaseChiffree2 = TrouverNumeroCase((iX2 + 11) % 12, iY2);
                 }
                 else
                 {
@@ -255,15 +256,15 @@ namespace Playfair_chiffreur_déchiffreur
         }
         static int TrouverX(int numCase)
         {
-            return numCase % 13;
+            return numCase % 12;
         }
         static int TrouverY(int numCase)
         {
-            return numCase / 13;
+            return numCase / 12;
         }
         static int TrouverNumeroCase(int x, int y)
         {
-            return x + 13 * y;
+            return x + 12 * y;
         }
     }
 }

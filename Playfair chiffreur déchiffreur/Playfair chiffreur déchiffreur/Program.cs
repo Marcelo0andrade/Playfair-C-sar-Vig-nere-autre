@@ -18,13 +18,21 @@ namespace Playfair_chiffreur_déchiffreur
 {
     class Program
     {
-        static string strAlphabet = @" !#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~☼‚ƒ„…ˆ‹‘’“”–—˜™›¡¢£¤¥¦§¨©«¬­¯°²³´·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜßàáâãäåæçèéêëìíîïðñòóôõö÷ùúûüÿ";
+        static string strAlphabet = @" !#$%&'()*+,-./0123456789:;<=>?'@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~☼‚ƒ„…ˆ‹‘’“”–—˜™›¡¢£¤¥¦§¨©«¬­¯°²³´·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜßàáâãäåæçèéêëìíîïðñòóôõö÷ùúûüÿ"; //169 donc 13 * 13
         const int istart = 0;
         static void Main(string[] args)
         {
             do
             {
                 Console.Clear();
+
+                Console.WriteLine(@"_________  .__     .__   _____   _____                                ");
+                Console.WriteLine(@"\_   ___ \ |  |__  |__|_/ ____\_/ ____\_______   ____   __ __ _______ ");
+                Console.WriteLine(@"/    \  \/ |  |  \ |  |\   __\ \   __\ \_  __ \_/ __ \ |  |  \\_  __ \");
+                Console.WriteLine(@"\     \____|   Y  \|  | |  |    |  |    |  | \/\  ___/ |  |  / |  | \/");
+                Console.WriteLine(@" \______  /|___|  /|__| |__|    |__|    |__|    \___  >|____/  |__|   ");
+                Console.WriteLine(@"        \/      \/                                  \/                ");
+                Console.WriteLine(@"-------------------------------------------------------------------------");
                 Console.WriteLine("\n Saisissez: \n ( C ) pour chiffrer \n ( D ) pour déchiffrer");
                 char csaisie = Console.ReadKey().KeyChar;
                 switch (csaisie)
